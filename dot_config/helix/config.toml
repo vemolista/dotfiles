@@ -1,1 +1,9 @@
 theme = "ayu_mirage"
+
+[language-server.tinymist]
+command = "tinymist"
+
+[[language]]
+name = "typst"
+language-servers = ["tinymist"]
+
