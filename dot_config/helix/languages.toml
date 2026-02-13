@@ -4,3 +4,20 @@ command = "tinymist"
 [[language]]
 name = "typst"
 language-servers = ["tinymist"]
+
+[[language]]
+name = "python"
+language-servers = ["ty", "ruff"]
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
+[language-server.ty.config]
+inlayHints.callArgumentNames = false
+experimental.rename = true
+experimental.autoImport = true

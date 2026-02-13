@@ -1,0 +1,45 @@
+[user]
+	name = vemolista
+	email = tomas@tomasvemola.com
+
+[core]
+	editor = hx
+
+[init]
+	defaultBranch = main
+
+[color]
+	ui = auto
+
+[alias]
+	a = add
+	aa = add -all
+	b = branch --sort=-committerdate --format='%(align:20)%(committerdate:relative)%(end)%(refname:short)'
+	c = commit -m
+	ca = commit -am
+	cr = commit --reuse-message HEAD --amend
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	ll = log --pretty=oneline --graph --abbrev-commit
+	s = switch
+	sc = switch --create 
+	st = status --short --branch
+
+	root = rev-parse --show-toplevel
+	contributors = shortlog --numbered --summary --email
+	delete-merged = "!git branch --merged | grep -v '\\*' | xargs git branch -d"
+	sweep = "!git fetch --prune && git checkout main && git pull && git branch -vv | awk '/: gone]/ {print $1}' | xargs -r git branch -D"
+
+	mark-stable = "!f() { git checkout main && git tag -f stable && git push origin stable --force; }; f" 
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[pull]
+	fast-forward = only
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

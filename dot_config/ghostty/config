@@ -6,6 +6,8 @@ window-padding-x = 2
 
 # Enable alt shortcuts in Helix
 macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
 
 # Start fish
 command = /opt/homebrew/bin/fish --login --interactive
