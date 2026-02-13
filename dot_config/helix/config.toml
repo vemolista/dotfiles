@@ -1,2 +1,4 @@
 theme = "ayu_mirage"
 
+[editor.soft-wrap]
+enable = true
