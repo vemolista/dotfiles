@@ -13,7 +13,7 @@
 
 [alias]
 	a = add
-	aa = add -all
+	aa = add --all
 	b = branch --sort=-committerdate --format='%(align:20)%(committerdate:relative)%(end)%(refname:short)'
 	c = commit -m
 	ca = commit -am
