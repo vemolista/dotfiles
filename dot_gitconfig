@@ -14,6 +14,7 @@
 [alias]
 	a = add
 	aa = add --all
+	ap = add --patch
 	b = branch --sort=-committerdate --format='%(align:20)%(committerdate:relative)%(end)%(refname:short)'
 	c = commit -m
 	ca = commit -am
