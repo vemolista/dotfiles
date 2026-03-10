@@ -1,0 +1,3 @@
+function pasta
+    pbpaste
+end
