@@ -1,0 +1,8 @@
+{
+  "amp.permissions": [
+    { "tool": "Bash", "matches": { "cmd": "*chezmoi forget*" }, "action": "ask" },
+    { "tool": "Bash", "matches": { "cmd": "*chezmoi destroy*" }, "action": "ask" },
+    { "tool": "Bash", "matches": { "cmd": "*chezmoi git -- push*" }, "action": "ask" },
+    { "tool": "Bash", "matches": { "cmd": "*chezmoi *" }, "action": "allow" }
+  ]
+}
