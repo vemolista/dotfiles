@@ -2,6 +2,7 @@ theme = "ayu_mirage"
 
 [editor]
 bufferline = "multiple"
+shell = ["fish", "-c"]
 
 [editor.soft-wrap]
 enable = true
