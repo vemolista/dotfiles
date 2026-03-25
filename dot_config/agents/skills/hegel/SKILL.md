@@ -4,6 +4,8 @@ description: >
   Write property-based tests using Hegel. Triggers on: "property-based tests",
   "PBT", "hegel tests", "test with random inputs",
   "generative tests",  "test properties", "randomized testing"
+metadata:
+  source-repo: https://github.com/hegeldev/hegel-skill
 ---
 
 # Hegel: Property-Based Testing
