@@ -6,6 +6,9 @@ if test -x /opt/homebrew/bin/brew
     /opt/homebrew/bin/brew shellenv | source
 end
 
+# Tell Flox to use fish
+set -gx FLOX_SHELL /opt/homebrew/bin/fish
+
 # Initialize starship
 if command -q starship
     starship init fish | source
