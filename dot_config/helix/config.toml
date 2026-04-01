@@ -14,3 +14,4 @@ skip-levels = 1
 
 [editor.file-picker]
 hidden = false
+git-ignore = false
