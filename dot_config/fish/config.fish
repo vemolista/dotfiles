@@ -33,3 +33,8 @@ if status is-interactive
         eval (zellij setup --generate-auto-start fish | string collect)
     end
 end
+
+# Initialize zoxide
+if command -q zoxide
+    zoxide init fish | source
+end
