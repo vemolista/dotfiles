@@ -331,7 +331,7 @@ default_shell "fish"
 //   - true (default, enabled)
 //   - false
 // 
-pane_frames false
+pane_frames true
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -434,7 +434,7 @@ pane_frames false
 // (Requires restart)
 // Default: true
 // 
-// styled_underlines false
+styled_underlines false
  
 // How often in seconds sessions are serialized
 // 
