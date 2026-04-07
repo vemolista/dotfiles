@@ -21,3 +21,10 @@ args = ["server"]
 inlayHints.callArgumentNames = false
 experimental.rename = true
 experimental.autoImport = true
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"

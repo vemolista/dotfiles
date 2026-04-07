@@ -9,6 +9,9 @@ end
 # Tell Flox to use fish
 set -gx FLOX_SHELL /opt/homebrew/bin/fish
 
+# Set default editor to Helix
+set -gx EDITOR hx
+
 # Initialize starship
 if command -q starship
     starship init fish | source
