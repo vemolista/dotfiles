@@ -5,6 +5,8 @@ keybinds clear-defaults=true {
         bind "Ctrl j" { MoveFocus "Down"; }
         bind "Ctrl k" { MoveFocus "Up"; }
         bind "Ctrl l" { MoveFocus "Right"; }
+        bind "Ctrl Alt h" { GoToPreviousTab; }
+        bind "Ctrl Alt l" { GoToNextTab; }
     }
     pane {
         bind "left" { MoveFocus "left"; }
