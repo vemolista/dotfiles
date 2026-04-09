@@ -1,6 +1,9 @@
 # Add ~/.local/bin to PATH (for Linux/chezmoi installs)
 fish_add_path -g ~/.local/bin
 
+# Add Go bin to PATH
+fish_add_path -g ~/go/bin
+
 # Homebrew setup (macOS only)
 if test -x /opt/homebrew/bin/brew
     /opt/homebrew/bin/brew shellenv | source
