@@ -3,6 +3,9 @@
     { "tool": "Bash", "matches": { "cmd": "*chezmoi forget*" }, "action": "ask" },
     { "tool": "Bash", "matches": { "cmd": "*chezmoi destroy*" }, "action": "ask" },
     { "tool": "Bash", "matches": { "cmd": "*chezmoi git -- push*" }, "action": "ask" },
-    { "tool": "Bash", "matches": { "cmd": "*chezmoi *" }, "action": "allow" }
+    { "tool": "Bash", "matches": { "cmd": "*chezmoi apply*" }, "action": "ask" },
+    { "tool": "Bash", "matches": { "cmd": "*chezmoi *" }, "action": "allow" },
+    { "tool": "Bash", "matches": { "cmd": "*rg *--pre*" }, "action": "ask" },
+    { "tool": "Bash", "matches": { "cmd": "*rg *" }, "action": "allow" }
   ]
 }
