@@ -3,6 +3,7 @@
 
 theme = "Ayu Mirage"
 window-padding-x = 2
+font-feature = -calt
 
 # Enable alt shortcuts in Helix
 macos-option-as-alt = left
