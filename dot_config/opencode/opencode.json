@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "permission": {
+    "bash": {
+      "*chezmoi forget*": "ask",
+      "*chezmoi destroy*": "ask",
+      "*chezmoi *git* push*": "ask",
+      "*chezmoi apply*": "ask",
+      "*chezmoi *": "allow",
+
+      "*rg *--pre*": "ask",
+      "*rg *": "allow"
+    }
+  }
+}
