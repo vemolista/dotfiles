@@ -31,6 +31,8 @@
 	ca = commit -am
 	cr = commit --reuse-message HEAD --amend
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	p = push
+	pf = push --force-with-lease
 	ll = log --pretty=oneline --graph --abbrev-commit
 	s = switch
 	sc = switch --create 
