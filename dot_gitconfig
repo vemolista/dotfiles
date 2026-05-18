@@ -45,6 +45,10 @@
 
 	mark-stable = "!f() { git checkout main && git tag -f stable && git push origin stable --force; }; f" 
 
+	dlog = -c diff.external=difft log --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff
+
 [push]
 	autoSetupRemote = true
 	default = current
