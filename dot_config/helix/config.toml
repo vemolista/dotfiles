@@ -14,3 +14,10 @@ skip-levels = 1
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+"C-y" = [
+  ":open %sh{yazi --chooser-file=/dev/stdout | tr -d '\\n'}",
+  ":redraw",
+  ":set mouse false", ":set mouse true"
+]
