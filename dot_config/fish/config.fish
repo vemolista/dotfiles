@@ -15,6 +15,11 @@ set -gx FLOX_SHELL /opt/homebrew/bin/fish
 # Set default editor to Helix
 set -gx EDITOR hx
 
+# Use the Proton Pass SSH agent (falls back to the default agent if not running)
+if test -S ~/.ssh/proton-pass-agent.sock
+    set -gx SSH_AUTH_SOCK ~/.ssh/proton-pass-agent.sock
+end
+
 # Initialize starship
 if command -q starship
     starship init fish | source
