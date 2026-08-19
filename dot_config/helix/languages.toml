@@ -8,7 +8,7 @@ language-servers = ["tinymist"]
 
 [[language]]
 name = "python"
-language-servers = ["ty", "ruff"]
+language-servers = ["ruff", "zuban"]
 
 [language-server.ruff]
 command = "ruff"
@@ -22,6 +22,10 @@ args = ["server"]
 inlayHints.callArgumentNames = false
 experimental.rename = true
 experimental.autoImport = true
+
+[language-server.zuban]
+command = "zuban"
+args = ["server"]
 
 [[language]]
 name = "rust"
