@@ -519,6 +519,11 @@ show_startup_tips false
 // Whether to enable mouse hover effects and pane grouping functionality
 // default is true
 // advanced_mouse_actions false
+
+// Whether scrolling a pane implicitly enters and exits Scroll mode
+// Default: true
+//
+scroll_mode_sync false
  
 // The ip address the web server should listen on when it starts
 // Default: "127.0.0.1"
