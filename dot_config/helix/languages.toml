@@ -8,24 +8,15 @@ language-servers = ["tinymist"]
 
 [[language]]
 name = "python"
-language-servers = ["ruff", "zuban"]
+language-servers = ["ruff", "pyrefly"]
 
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
 
-[language-server.ty]
-command = "ty"
-args = ["server"]
-
-[language-server.ty.config]
-inlayHints.callArgumentNames = false
-experimental.rename = true
-experimental.autoImport = true
-
-[language-server.zuban]
-command = "zuban"
-args = ["server"]
+[language-server.pyrefly]
+command = "pyrefly"
+args = ["lsp"]
 
 [[language]]
 name = "rust"
