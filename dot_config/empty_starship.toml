@@ -2,11 +2,10 @@
 
 command_timeout = 2000
 
+format = "$username$directory$git_branch$line_break$character"
+right_format = ""
+
+add_newline = true
+
 [directory]
 truncate_to_repo = false
-
-[docker_context]
-disabled = true
-
-[package]
-disabled = true
