@@ -20,11 +20,6 @@ if test -S ~/.ssh/proton-pass-agent.sock
     set -gx SSH_AUTH_SOCK ~/.ssh/proton-pass-agent.sock
 end
 
-# Initialize starship
-if command -q starship
-    starship init fish | source
-end
-
 ##########
 # Zellij #
 ##########
