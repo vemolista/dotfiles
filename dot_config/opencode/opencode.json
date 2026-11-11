@@ -11,5 +11,8 @@
       "*rg *--pre*": "ask",
       "*rg *": "allow"
     }
-  }
+  },
+  "plugins": [
+    "@plannotator/opencode@latest"
+  ]
 }
