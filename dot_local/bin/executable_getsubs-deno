@@ -4,9 +4,27 @@ import * as webvttModule from "npm:webvtt-parser";
 
 const { WebVTTParser } = webvttModule.default;
 
+type CookieOptions = {
+  cookie?: string;
+  cookiesFile?: string;
+};
+
+function cookieArgs({ cookie, cookiesFile }: CookieOptions): string[] {
+  return [
+    ...(cookie
+      ? [
+        "--add-header",
+        /^\s*cookie\s*:/i.test(cookie) ? cookie : `Cookie: ${cookie}`,
+      ]
+      : []),
+    ...(cookiesFile ? ["--cookies", cookiesFile] : []),
+  ];
+}
+
 async function getVtt(
   url: string,
   arg: "--write-sub" | "--write-auto-sub",
+  cookies: CookieOptions,
 ): Promise<null | string> {
   const tempDir = await Deno.makeTempDir();
 
@@ -21,6 +39,7 @@ async function getVtt(
         "vtt",
         "-o",
         path.join(tempDir, "%(id)s.%(ext)s"),
+        ...cookieArgs(cookies),
         url,
       ],
       stdout: "piped",
@@ -81,21 +100,50 @@ function vttLines(vtt: string): Iterable<string> {
   return removeConsecutiveDuplicates(rawResultLines);
 }
 
+function parseArgs(args: readonly string[]): CookieOptions & { url: string } {
+  let url: string | undefined;
+  let cookie: string | undefined;
+  let cookiesFile: string | undefined;
+
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+
+    if (arg === "--cookie") {
+      cookie = args[++i];
+      if (!cookie) throw new Error("--cookie needs a value");
+    } else if (arg === "--cookies") {
+      cookiesFile = args[++i];
+      if (!cookiesFile) throw new Error("--cookies needs a file path");
+    } else if (arg.startsWith("-")) {
+      throw new Error(`unknown option: ${arg}`);
+    } else if (url) {
+      throw new Error("too many args");
+    } else {
+      url = arg;
+    }
+  }
+
+  if (!url) throw new Error("needs a URL");
+
+  return { url, cookie, cookiesFile };
+}
+
 async function main(): Promise<void> {
-  const [url, ...rest] = Deno.args;
-
-  if (rest.length) {
-    console.error("too many args");
+  let options: CookieOptions & { url: string };
+  try {
+    options = parseArgs(Deno.args);
+  } catch (error) {
+    console.error(`${(error as Error).message}`);
+    console.error(
+      "usage: getsubs-deno <url> [--cookie '<cookie>' | --cookies <file>]",
+    );
     Deno.exit(1);
   }
 
-  if (!url) {
-    console.error("needs a URL");
-    Deno.exit(1);
-  }
+  const { url, ...cookies } = options;
 
-  const vtt = await getVtt(url, "--write-sub") ||
-    await getVtt(url, "--write-auto-sub");
+  const vtt = await getVtt(url, "--write-sub", cookies) ||
+    await getVtt(url, "--write-auto-sub", cookies);
 
   if (!vtt) {
     console.error("no subs found");
